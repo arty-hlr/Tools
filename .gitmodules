@@ -1,6 +1,3 @@
-[submodule "rsg"]
-	path = rsg
-	url = https://github.com/mthbernardes/rsg.git
 [submodule "onetwopunch"]
 	path = onetwopunch
 	url = git@github.com:arty-hlr/onetwopunch.git
@@ -67,3 +64,6 @@
 [submodule "Windows/Invisi-Shell"]
 	path = Windows/Invisi-Shell
 	url = https://github.com/OmerYa/Invisi-Shell.git
+[submodule "rsg"]
+	path = rsg
+	url = git@github.com:arty-hlr/rsg.git
