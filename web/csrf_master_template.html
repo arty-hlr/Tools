@@ -1,0 +1,20 @@
+<html>
+<body bgcolor="#000000">
+</body>
+
+<script src=tokens.js></script>
+<script>
+    var bruteforcer = "worker.js";
+    var w1 = new Worker(bruteforcer);
+    var w2 = new Worker(bruteforcer);
+    var w3 = new Worker(bruteforcer);
+    function startBlock(worker, tokens) {
+        worker.postMessage({
+            'tokens' : tokens
+        });
+    }
+    startBlock(w1, tokens.slice(0,333));
+    startBlock(w2, tokens.slice(333,666));
+    startBlock(w3, tokens.slice(666,tokens.length));
+</script>
+</html>

