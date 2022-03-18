@@ -66,4 +66,7 @@
 	url = https://github.com/OmerYa/Invisi-Shell.git
 [submodule "rsg"]
 	path = rsg
-	url = git@github.com:arty-hlr/rsg.git
+	url = https://github.com/arty-hlr/rsg.git
+[submodule "Windows/SharpCollection"]
+	path = Windows/SharpCollection
+	url = https://github.com/Flangvik/SharpCollection.git
