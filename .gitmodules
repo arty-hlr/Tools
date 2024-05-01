@@ -70,3 +70,9 @@
 [submodule "Windows/SharpCollection"]
 	path = Windows/SharpCollection
 	url = https://github.com/Flangvik/SharpCollection.git
+[submodule "Linux/chisel"]
+	path = Linux/chisel
+	url = https://github.com/jpillora/chisel
+[submodule "Linux/pspy"]
+	path = Linux/pspy
+	url = https://github.com/DominicBreuker/pspy.git
