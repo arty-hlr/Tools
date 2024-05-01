@@ -13,9 +13,9 @@ root=$2
 if [ $root = 'pwd' ]; then
     directory=$(pwd)
 elif [ $root = 'windows' ]; then
-    directory='/home/arty/Documents/Tools/Windows'
+    directory='/home/kali/Documents/Tools/Windows'
 elif [ $root = 'linux' ]; then
-    directory='/home/arty/Documents/Tools/Linux'
+    directory='/home/kali/Documents/Tools/Linux'
 else
     directory=$root
 fi
