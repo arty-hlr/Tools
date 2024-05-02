@@ -1,6 +1,6 @@
 [submodule "onetwopunch"]
 	path = onetwopunch
-	url = git@github.com:arty-hlr/onetwopunch.git
+	url = https://github.com/arty-hlr/onetwopunch.git
 [submodule "Linux/LinEnum"]
 	path = Linux/LinEnum
 	url = https://github.com/rebootuser/LinEnum.git
