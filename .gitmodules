@@ -1,9 +1,6 @@
 [submodule "onetwopunch"]
 	path = onetwopunch
 	url = git@github.com:arty-hlr/onetwopunch.git
-[submodule "privilege-escalation-awesome-scripts-suite"]
-	path = privilege-escalation-awesome-scripts-suite
-	url = https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
 [submodule "Linux/LinEnum"]
 	path = Linux/LinEnum
 	url = https://github.com/rebootuser/LinEnum.git
@@ -13,48 +10,24 @@
 [submodule "Linux/linux-kernel-exploits"]
 	path = Linux/linux-kernel-exploits
 	url = https://github.com/SecWiki/linux-kernel-exploits.git
-[submodule "Windows/Inveigh"]
-	path = Windows/Inveigh
-	url = https://github.com/Kevin-Robertson/Inveigh.git
 [submodule "Windows/BloodHound"]
 	path = Windows/BloodHound
 	url = https://github.com/BloodHoundAD/BloodHound.git
 [submodule "Windows/PowerSploit"]
 	path = Windows/PowerSploit
 	url = https://github.com/PowerShellMafia/PowerSploit.git
-[submodule "Windows/Rubeus"]
-	path = Windows/Rubeus
-	url = https://github.com/GhostPack/Rubeus.git
-[submodule "Windows/mimikatz"]
-	path = Windows/mimikatz
-	url = https://github.com/gentilkiwi/mimikatz.git
 [submodule "Windows/ADModule"]
 	path = Windows/ADModule
 	url = https://github.com/samratashok/ADModule.git
 [submodule "Windows/PowerUpSQL"]
 	path = Windows/PowerUpSQL
 	url = https://github.com/NetSPI/PowerUpSQL.git
-[submodule "Windows/SafetyKatz"]
-	path = Windows/SafetyKatz
-	url = https://github.com/GhostPack/SafetyKatz.git
-[submodule "Windows/BetterSafetyKatz"]
-	path = Windows/BetterSafetyKatz
-	url = https://github.com/Flangvik/BetterSafetyKatz.git
-[submodule "Windows/SharpKatz"]
-	path = Windows/SharpKatz
-	url = https://github.com/b4rtik/SharpKatz.git
 [submodule "Windows/windows-kernel-exploits"]
 	path = Windows/windows-kernel-exploits
 	url = https://github.com/SecWiki/windows-kernel-exploits.git
 [submodule "Windows/RACE"]
 	path = Windows/RACE
 	url = https://github.com/samratashok/RACE.git
-[submodule "Windows/kekeo"]
-	path = Windows/kekeo
-	url = https://github.com/gentilkiwi/kekeo.git
-[submodule "Windows/NetLoader"]
-	path = Windows/NetLoader
-	url = https://github.com/Flangvik/NetLoader.git
 [submodule "Windows/nishang"]
 	path = Windows/nishang
 	url = https://github.com/samratashok/nishang.git
@@ -76,3 +49,6 @@
 [submodule "Linux/pspy"]
 	path = Linux/pspy
 	url = https://github.com/DominicBreuker/pspy.git
+[submodule "Windows/Invoke-Mimikatz"]
+	path = Windows/Invoke-Mimikatz
+	url = https://github.com/g4uss47/Invoke-Mimikatz.git
