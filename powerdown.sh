@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: powerdown -r/-d [-b64] <interface> <port> <filename>"
+    echo "Usage: powerdown -r/-d [--base64] <interface> <port> <filename>"
     exit
 }
 
