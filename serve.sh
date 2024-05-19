@@ -28,7 +28,6 @@ while true; do
     esac
 done
 
-# root=$2
 if [ $root == 'pwd' ] || [ $root == '.' ]; then
     directory=$(pwd)
 elif [ $root == 'windows' ]; then
@@ -38,22 +37,6 @@ elif [ $root == 'linux' ]; then
 else
     directory=$root
 fi
-
-# method=$1
-# if [ $# -eq 3 ] && [ $3 != '--no-pass' ]; then
-#     port=$3
-# else
-#     port=''
-# fi
-
-# if [ $# -eq 4 ] && [ $4 == '--no-pass' ]; then
-#     pass=''
-#     pass_reminder=''
-# elif  [ $# -eq 3 ] && [ $3 == '--no-pass' ]; then
-#     pass=''
-#     pass_reminder=''
-# else
-# fi
 
 ls $directory
 echo ''
