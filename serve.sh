@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: serve -h|f|s <windows|linux|pwd|other> [port] [-N | --no-pass]"
+    echo "Usage: serve -h|f|s <windows|linux|pwd|other> [interface] [port] [-N | --no-pass]"
     exit
 }
 
@@ -41,40 +41,60 @@ fi
 ls $directory
 echo ''
 if [ $# -lt 1 ]; then
+    ip='0.0.0.0'
     port=''
+elif [ $# -eq 1 ]; then
+    if [ $1 -eq $1 ] 2>/dev/null; then
+        # if arg is number
+        ip='0.0.0.0'
+        port=$1
+    else
+        ip=$(ifconfig $1 | grep -oP 'inet \d+\.\d+\.\d+\.\d+' | cut -d ' ' -f 2)
+        port=''
+    fi
+elif [ $# -eq 2 ]; then
+    ip=$(ifconfig $1 | grep -oP 'inet \d+\.\d+\.\d+\.\d+' | cut -d ' ' -f 2)
+    port=$2
 else
-    port=$1
+    usage
 fi
 
+# -b
 if [ $method == 'http' ]; then
     if [ ! $port ]; then
         port=8000
     fi
     echo "Serving HTTP in $directory..."
     if [ $port -lt 1024 ]; then
-        sudo python3 -m http.server -d $directory $port
+        sudo python3 -m http.server -d $directory -b $ip $port
     else
-        python3 -m http.server -d $directory $port
+        python3 -m http.server -d $directory -b $ip $port
     fi
 
+# -i
 elif [ $method == 'ftp' ]; then
     echo "Serving FTP in $directory..."
     if [ ! $port ]; then
         port=21
     fi
     if [ $port -lt 1024 ]; then
-        sudo python3 -m pyftpdlib -d $directory -p $port -w
+        sudo python3 -m pyftpdlib -d $directory -i $ip -p $port -w
     else
-        python3 -m pyftpdlib -d $directory -p $port -w
+        python3 -m pyftpdlib -d $directory -i $ip -p $port -w
     fi
 
+# -ip
 elif [ $method == 'smb' ]; then
     echo "Serving SMB in $directory..."
     if [ ! $port ]; then
         port=445
     fi
     echo -en $pass_reminder
-    sudo impacket-smbserver root $directory -port $port -smb2support $pass 2>/dev/null
+    if [ $port -lt 1024 ]; then
+        sudo impacket-smbserver root $directory -ip $ip -port $port -smb2support $pass 2>/dev/null
+    else
+        impacket-smbserver root $directory -ip $ip -port $port -smb2support $pass 2>/dev/null
+    fi
 else
     usage
 fi
