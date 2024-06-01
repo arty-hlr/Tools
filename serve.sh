@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: serve -h|f|s <windows|linux|pwd|other> [interface] [port] [-N | --no-pass]"
+    echo "Usage: serve -h|f|s|w <windows|linux|pwd|other> [interface] [port] [-N | --no-pass]"
     exit
 }
 
@@ -10,7 +10,7 @@ if [ $# -lt 2 ]; then
     usage
 fi
 
-ARGS=$(getopt -o ":h:f:s:,N" -l no-pass -- "$@")
+ARGS=$(getopt -o ":h:f:s:w:,N" -l no-pass -- "$@")
 eval set -- "$ARGS"
 
 pass='-user root -password root'
@@ -18,10 +18,11 @@ pass_reminder='/user:root root\n\n'
 
 while true; do
     case "$1" in
-        -h|-f|-s) root=$2;;&
+        -h|-f|-s|-w) root=$2;;&
         -h) method='http';shift 2;;
         -f) method='ftp';shift 2;;
         -s) method='smb';shift 2;;
+        -w) method='webdav';shift 2;;
         -N|--no-pass) pass='';pass_reminder='';shift;;
         --) shift; break;;
         *) break;;
@@ -59,7 +60,6 @@ else
     usage
 fi
 
-# -b
 if [ $method == 'http' ]; then
     if [ ! $port ]; then
         port=8000
@@ -71,7 +71,6 @@ if [ $method == 'http' ]; then
         python3 -m http.server -d $directory -b $ip $port
     fi
 
-# -i
 elif [ $method == 'ftp' ]; then
     echo "Serving FTP in $directory..."
     if [ ! $port ]; then
@@ -83,7 +82,6 @@ elif [ $method == 'ftp' ]; then
         python3 -m pyftpdlib -d $directory -i $ip -p $port -w
     fi
 
-# -ip
 elif [ $method == 'smb' ]; then
     echo "Serving SMB in $directory..."
     if [ ! $port ]; then
@@ -95,6 +93,13 @@ elif [ $method == 'smb' ]; then
     else
         impacket-smbserver root $directory -ip $ip -port $port -smb2support $pass 2>/dev/null
     fi
+
+elif [ $method == 'webdav' ]; then
+    echo "Serving WebDAV in $directory..."
+    if [ ! $port ]; then
+        port=8000
+    fi
+    wsgidav --host $ip --port $port --root $directory --auth anonymous
 else
     usage
 fi
