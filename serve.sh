@@ -99,7 +99,7 @@ elif [ $method == 'webdav' ]; then
     if [ ! $port ]; then
         port=8000
     fi
-    wsgidav --host $ip --port $port --root $directory --auth anonymous -q
+    wsgidav --host $ip --port $port --root $directory --auth anonymous
 else
     usage
 fi
