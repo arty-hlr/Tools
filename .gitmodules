@@ -52,3 +52,6 @@
 [submodule "Windows/Invoke-Mimikatz"]
 	path = Windows/Invoke-Mimikatz
 	url = https://github.com/g4uss47/Invoke-Mimikatz.git
+[submodule "syscall_info"]
+	path = syscall_info
+	url = git@github.com:arty-hlr/syscall_info.git
